@@ -1,27 +1,105 @@
-# AngularHttpclient
+# Angular 11 Spring Boot PostgreSQL CRUD Example
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+https://loizenai.com/angular-11-spring-boot-postgresql-crud-example/
 
-## Development server
+![Angular 11 Spring Boot PostgreSQL CRUD Example](https://loizenai.com/wp-content/uploads/2020/12/Angular-SpringBoot-CRUD-PostgreSQL-Example.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+In the tutorial, I introduce how to create an “SpringBoot Angular Postgresql CRUD Example” with POST/GET/PUT/DELETE requests to SpringBoot RestAPIs.
 
-## Code scaffolding
+– Design overview system by Architecture Diagram that includes: Angular Client, SpringBoot RestAPIs, and Postgresql database.
+– Implement Angular CRUD Client with Angular built-in HttpClient to communicate with server side.
+– Implement SpringBoot RestAPIs that gets data from Postgresql using Spring Data JPA and returns back data as Json format to requested Angular Client.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Overall Angular 11 Spring Boot Postgresql CRUD Architecture Application
 
-## Build
+![Overall Angular 11 Spring Boot Postgresql CRUD Architecture Application](https://loizenai.com/wp-content/uploads/2020/06/Overall-Architecture-Angular-CRUD-Application-with-SpringBoot-Fullstack-Example.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+We build backend SpringBoot Application that provides RestAPIs for POST/GET/PUT/DELETE Customer entities and store them in Postgresql/PostgreSQL database.
+We implement Angular Application that use Angular HTTPClient to interact (call/receive requests) with SpringBoot backend and display corresponding page view in browser.
 
-## Running unit tests
+## Overview Spring Boot CRUD Postgresql Backend Architecture
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![Overview Spring Boot CRUD Postgresql Backend Architecture](https://loizenai.com/wp-content/uploads/2020/06/SpringBoot-RestAPIs-Backend-Architecture-Design.png)
 
-## Running end-to-end tests
+For building RestAPIs in SpringBoot application, we use Spring MVC Web.
+For interacting with database Postgresql/PostgreSQL, we use Spring JPA.
+We implement RestAPI’s URL in RestAPIController.java file to process bussiness logic.
+For manipulating database’s records, we define a JPA model for mapping field data and use a JPA CRUD repository to do CRUD operation with Postgresql/PostgreSQL.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+– SpringBoot Project Structure
 
-## Further help
+![SpringBoot Project Structure](https://loizenai.com/wp-content/uploads/2020/06/SpringBoot-Backend-Project-Structure.png)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+models package defines Customer model and Message response class.
+repository package defines Spring JPA repository class CustomerRepository to do CRUD operation with database.
+service package defines a middleware class CustomerServices between Controller and Repository.
+controller package defines a RestAPI Controller RestAPIController to handle POST/GET/PUT/DELETE request.
+
+## Overview Angular CRUD Architecture Design
+
+![Overview Angular CRUD Architecture Design](https://loizenai.com/wp-content/uploads/2020/06/Angular-CRUD-Application-Frontend-Design-Architecture.png)
+
+Angular CRUD Application (in “Angular 11 Spring Boot PostgreSQL CRUD Tutorial”) is designed with 3 main layers:
+
+Service Layer is used to define Angular Common Services and HttpClient Services to interact with RestAPIs
+Component Layer is used to define Angular Components to show views in Browser for interacting with Users
+Router Layer is used to route URLs mapping with the corresponding Angular Components
+
+Angular Project Structure:
+
+![Angular Project Structure:](https://loizenai.com/wp-content/uploads/2020/06/Angular-CRUD-Application-Project-Structure-1.png)
+
+Angular CRUD Application defines 3 components, 2 services, 1 routers, and 2 data models:
+
+– Components:
+
+add-customer component is used to add a new customer to system
+list-customer component is used to show all customers on view pages, delete a customer and update a customer
+message component is used to define a view to show logging message on browser
+– Services:
+
+customer.service.ts defines POST/GET/PUT/DELETE HTTP requests to SpringBoot RestAPIs with the built-in Angular HttpClient.
+message.service.ts defines an array storage to log all messages when Angular CRUD App running
+
+– Router: app-routing.module.ts defines how to map a corresponding Angular component with an URL.
+
+– Models:
+
+customer.ts defines the main data model of our application.
+message.ts defines the response data model between SpringBoot and Angular application.
+
+## Goal – Angular SpringBoot CRUD Postgresql
+– Add new Customer: from Angular to SpringBoot and save to Postgresql.
+
+![Angular CRUD App – Add new customers](https://loizenai.com/wp-content/uploads/2020/06/Angular-CRUD-App-Add-new-customers.png)
+
+– List All Customers: from Angular calls SpringBoot RestAPI to get customer from Postgresql.
+
+![List All Customers: from Angular calls SpringBoot RestAPI to get customer from Postgresql.](https://loizenai.com/wp-content/uploads/2020/06/Angular-CRUD-Application-List-All-Customer.png)
+
+– Details a Customer: from Angular calls get http request from SpringBoot RestAPI to get a record in Postgresql database
+
+![– Details a Customer: from Angular calls get http request from SpringBoot RestAPI to get a record in Postgresql database](https://loizenai.com/wp-content/uploads/2020/06/Angular-CRUD-App-Details-a-Customer.png)
+
+– Update a Customer: from Angular calls a put http request from SpringBoot RestAPI to update a record in Postgresql database.
+
+![– Update a Customer: from Angular calls a put http request from SpringBoot RestAPI to update a record in Postgresql database.](https://loizenai.com/wp-content/uploads/2020/06/Angular-CRUD-Application-Update-a-Customer.png)
+
+– Delete a Customer: from Angular calls a delete http request from SpringBoot RestAPI to delete a record in Postgresql database.
+
+![Angular CRUD SpringBoot Postgresql App – Delete a Customer successfully](https://loizenai.com/wp-content/uploads/2020/06/Angular-CRUD-App-Delete-a-Customer-successfully.png)
+
+– Check database records: do a get request from Angular to SpringBoot RestAPI.
+
+![Angular CRUD App – Check database records](https://loizenai.com/wp-content/uploads/2020/06/Angular-CRUD-App-Check-database-records.png)
+
+## Video Guide – Angular SpringBoot CRUD Postgresql Example FullStack DEBUG
+
+https://youtu.be/848fOT3Jt44
+
+## Related posts
+
+- [Spring Boot Security JWT Authentication Example](https://loizenai.com/spring-boot-security-jwt-authentication-example-Postgresql-postgresql-spring-jpa-restapis/)
+- [Angular Spring Boot JWT Authentication Example](https://loizenai.com/spring-boot-security-jwt-authentication-example-Postgresql-postgresql-spring-jpa-restapis/)
+- [Angular Django CRUD RestAPIs Application Examples](https://loizenai.com/angular-django-crud-restapis-application-examples-fullstack-angular-10-django-Postgresql-postgresql/)
+- [Angular 10 Nodejs PostgreSQL CRUD Example](https://loizenai.com/angular-10-nodejs-postgresql-crud-example-using-express-restapis-sequelize-tutorial/)
